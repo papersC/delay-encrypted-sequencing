@@ -4,6 +4,9 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch
+import os
+OUT_DIR = os.environ.get("OUT_DIR", "figures")
+os.makedirs(OUT_DIR, exist_ok=True)
 
 fig, ax = plt.subplots(figsize=(7.5, 5.5))
 ax.set_xlim(0, 10); ax.set_ylim(0, 7.2)
@@ -87,7 +90,7 @@ ax.text(5.0, 0.48, 'Risk-neutral (ρ=0) ← → Risk-averse (ρ=1.0)  |  Latency
 arr(2.55, 1.55, 2.55, 1.2, C_BLUE, 0.8)
 arr(7.7, 1.55, 7.7, 1.2, C_RED, 0.8)
 
-fig.savefig("/sessions/kind-sweet-hopper/mnt/Delay-Encrypted_Sequencing_for_Layer-2_Rollups_IEEEAccess_(Pro)/fig_sysmodel.png",
+fig.savefig(os.path.join(OUT_DIR, "fig_sysmodel.png"),
             dpi=300, bbox_inches='tight', facecolor='white')
 plt.close()
 print("System model diagram saved.")

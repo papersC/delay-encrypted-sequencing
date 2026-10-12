@@ -14,7 +14,10 @@ from scipy import stats, optimize
 import json
 
 np.random.seed(42)
-OUT = "/sessions/youthful-wizardly-euler/mnt/Delay-Encrypted_Sequencing_for_Layer-2_Rollups_IEEEAccess_(Pro)"
+import os
+OUT_DIR = os.environ.get("OUT_DIR", "figures")
+os.makedirs(OUT_DIR, exist_ok=True)
+OUT = OUT_DIR
 
 # ── Calibrated parameters (same as v3) ──
 N_TX = 10000; N_RUNS = 100; BASE_LATENCY = 250

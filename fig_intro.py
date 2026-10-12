@@ -5,7 +5,10 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 
-OUT = "/sessions/kind-sweet-hopper/mnt/Delay-Encrypted_Sequencing_for_Layer-2_Rollups_IEEEAccess_(Pro)/fig_overview.png"
+import os
+OUT_DIR = os.environ.get("OUT_DIR", "figures")
+os.makedirs(OUT_DIR, exist_ok=True)
+OUT = os.path.join(OUT_DIR, "fig_overview.png")
 
 plt.rcParams.update({
     'font.family': 'serif',

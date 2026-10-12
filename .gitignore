@@ -23,3 +23,5 @@ Thumbs.db
 *.aux
 *.log
 
+# Generated figures
+figures/
